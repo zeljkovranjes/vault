@@ -23,13 +23,14 @@ export default function Login() {
                 <div className="login">
                     <h2>Sign In</h2>
                     <p>Login to access your vault(s)</p>
+                    <p>credentials have automatically been filled just click login</p>
                     <form action={formAction}>
                         {state?.result?.error && (
                             <Alert type={"danger"} code={state.result.code} message={state.result.error} />
                         )}
                         <br />
-                        <Input type="text" name="username" placeholder="Username" required />
-                        <Input type="password" name="password" placeholder="Password" required />
+                        <Input type="text" name="username" placeholder="Username" value="admin" required />
+                        <Input type="password" name="password" placeholder="Password" value="admin" required />
                         <div className="remember">
                             <Input type="checkbox" name="remember" />
                             Remember me
