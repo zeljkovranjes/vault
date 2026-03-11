@@ -47,7 +47,7 @@ export async function POST(request: Request) {
                 decipher.start({ iv: iv })
                 decipher.update(forge.util.createBuffer(encryptedBytes))
                 const success = decipher.finish()
-                if (success) {
+                if (success && decipher.output.toString() === 'secret') {
                     session.vault.key = aesKey
                     await session.save()
                     // todo: redirect to vault...
